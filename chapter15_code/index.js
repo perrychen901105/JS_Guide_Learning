@@ -27,7 +27,10 @@ function getElementByTagName() {
   var childNode = document.getElementById("ele2");
   var actualNode = child(childNode, 0);
 
-  getBoxSize(spans[0]);
+  var matrix = getElementPosition(pnode);
+  console.log(matrix);
+
+  // getBoxSize(spans[0]);
   // spans is [object HTMLSpanElement]
 }
 
@@ -81,6 +84,7 @@ function child(e, n) {
     return e.children[n];
   }
 
+  //
   if (n >= 0) {
     if (e.firstElementChild) { e = e.firstElementChild } else {
       for ( e = e.firstChild; e && e.nodeType !== 1; e = e.nextSibling) {}
@@ -139,4 +143,21 @@ function getBoxSize(e) {
   var h = box.height || (box.bottom - box.top)
 
   console.log("x " + x + " y " + y + " w " + w + " h " + h);
+}
+
+function scrollToBottom() {
+  var documentHeight = document.documentElement.offsetHeight;
+  var viewportHeight = window.innerHeight;
+  console.log("documentHeight " + documentHeight + " viewportHeight " + viewportHeight)
+  window.scrollTo(0, documentHeight - viewportHeight);
+}
+
+function getElementPosition(e) {
+  var x = 0, y = 0;
+  while (e != null) {
+    x += e.offsetLeft;
+    y += e.offsetTop;
+    e = e.offsetParent;
+  }
+  return {x: x, y: y};
 }
