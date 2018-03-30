@@ -37,6 +37,23 @@
     Notice how it grabs your attention with its bold text and bright colors.
     Also notice that the heading is centered and in blue italics.
   </div>
+  <div>
+    <!-- text-shadow 属性自动产生阴影效果 -->
+    <span style="text-shadow: 3px 3px 1px #888">Shadowed</span>
+    
+    <!-- 这里我们利用定位产生相同的效果 -->
+    <span style="position: relative;">
+      Shadowed <!-- 这里是投射阴影的文本 -->
+        <span style="position: absolute; top: 3px; left: 3px; z-index: -1; color: #888">Shadowed</span> <!-- 这里是阴影 -->
+    </span>
+  </div>
+  <div>
+    <tr>
+      <td>2096.2</td>
+      <td>17511.34</td>
+      <td>5089.35</td>
+    </tr>
+  </div>
   <p id="special" style = "position: absolute; bottom: 10px; width: 100%;">
     This paragraph is centered<br>
     and appears in uppercase letters.<br>
