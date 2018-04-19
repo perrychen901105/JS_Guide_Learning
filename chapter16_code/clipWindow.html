@@ -2,6 +2,7 @@
 <head>
   <meta charset="UTF-8">
   <title></title>
+  <script src="index.js"></script>
   <style type="text/css">
     div.window { /* 指定窗口的尺寸和边框 */
       position: absolute; /* position 在其他地方指定 */
@@ -33,6 +34,12 @@
       opacity: .75;
       filter: alpha(opacity=75);
     }
+
+    .attention {
+      background-color: yellow;
+      font-weight: bold;
+      border: solid black 2px;
+    }
   </style>
 </head>
 <body>
@@ -51,6 +58,12 @@
 
   <div style="background-color: blue; width: 200px; height: 200px; clip: rect(auto 100px auto auto); overflow: auto;">
     As developers, we often face situations where we need to use unfamiliar code. A question will arise during these moments. How much time should I invest in understanding the code that I’m about to use? A typical answer is learn enough to start coding; then explore that topic further when time permits. Well, the time has come to gain a better understanding of module.exports and exports in Node.js. Here’s what I have learned.
+  </div>
+
+  <div>
+    <button onclick="shake(this, fadeOut);">Shake and Fade</button>
+    <br>
+    <button onclick="scale(this, 2);">Scale Element</button>
   </div>
 </body>
 </html>
