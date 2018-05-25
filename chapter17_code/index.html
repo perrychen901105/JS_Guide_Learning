@@ -1,0 +1,28 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Mouse event</title>
+</head>
+<body>
+  <script src="getScrollOffsets.js"></script>
+  <script src="drag.js"></script>
+  <!-- 要拖动的元素 -->
+  <div style="position: absolute; left: 100px; top: 100px; width: 250px; background-color: white; border: solid black;">
+    <!-- 通过“标题栏”拖动整个元素，注意 onmousedown 属性 -->
+    <div style="background-color: gray; border-bottom: dotted black; padding: 3px; font-family: sans-serif; font-weight: bold;" onmousedown="drag(this.parentNode, event);">拖动我</div>
+    <p>这是一个测试。测试中测试中</p><p>测试</p><p>测试</p>
+  </div>
+
+
+  <!-- 鼠标滚轮 -->
+  <script src="event_emample.js"></script>
+  <script src="Enclose.js"></script>
+  <script>
+    whenReady(function() {
+      enclose(document.getElementById("content"), 400, 200, -200, -300);
+    });
+  </script>
+  <style>div.enclosure { border: solid black 10px; margin: 10px; }</style>
+  <img id="content" src="craftar_room.jpg">
+</body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Chat Demo</title>
+</head>
+<body>
+  <script>
+    window.onload = function() {
+      var nick = prompt("Enter your nick name");
+      var input = document.getElementById("input");
+      input.focus();        // 设置键盘焦点
+
+      // 通过EventSource注册新消息的通知
+      var chat = new EventSource("/chat");
+      chat.onmessage = function(event) {
+        var msg = event.data;
+        var node = document.createTextNode(msg);
+        var div = document.createElement("div");
+        div.appendChild(node);
+        document.body.insertBefore(div, input);
+        input.scrollIntoView();
+      }
+
+      // 使用xmlhttprequest把用户的消息发送给服务器
+      input.onchange = function() {
+        var msg = nick + ": " + input.value;    // 用户完成输入
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/chat");
+        xhr.setRequestHeader("Content-type", "text/plain; charset=UTF-8");
+        xhr.send(msg);
+        input.value = "";
+      }
+    };
+  </script>
+  <input id="input" style="width:100%"/>
+</body>
+</html>
