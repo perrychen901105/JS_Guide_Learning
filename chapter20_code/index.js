@@ -130,8 +130,11 @@ function cookieStorage(maxage, path) {              // 分别代表存储有效�
         keys = [];
         this.length = 0;
     };
+}
 
+function cacheList() {
+    // 浏览器更新缓存过程中会触发一系列事件，通过注册处理程序来跟踪
+    applicationCache.onupdateready = function() {
 
-
-
+    }
 }
